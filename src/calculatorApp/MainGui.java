@@ -30,7 +30,7 @@ import javax.swing.JLabel;
 public class MainGui extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	static JTextField textField;
 	private final ButtonGroup buttonCalculator = new ButtonGroup();
 	
 	/**
@@ -54,6 +54,14 @@ public class MainGui extends JFrame {
 		});
 	}
 	
+	public JTextField getTextField() {
+		return textField;
+	}
+			
+	public void setTextField(JTextField textField) {
+		MainGui.textField = textField;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -62,25 +70,26 @@ public class MainGui extends JFrame {
 		setType(Type.UTILITY);
 		setTitle("Calculator");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 260, 340);
+		setBounds(100, 100, 260, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{63, 63, 63, 43, 0};
-		gbl_contentPane.rowHeights = new int[]{15, 55, 45, 45, 45, 45, 45, 0};
+		gbl_contentPane.rowHeights = new int[]{20, 55, 45, 45, 45, 45, 45, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JLabel arithmeticOperation = new JLabel("");
+		arithmeticOperation.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		arithmeticOperation.setHorizontalTextPosition(SwingConstants.RIGHT);
 		arithmeticOperation.setHorizontalAlignment(SwingConstants.RIGHT);
 		arithmeticOperation.setForeground(new Color(128, 0, 0));
 		GridBagConstraints gbc_arithmeticOperation = new GridBagConstraints();
-		gbc_arithmeticOperation.gridwidth = 2;
+		gbc_arithmeticOperation.fill = GridBagConstraints.HORIZONTAL;
 		gbc_arithmeticOperation.insets = new Insets(0, 0, 5, 0);
-		gbc_arithmeticOperation.gridx = 2;
+		gbc_arithmeticOperation.gridx = 3;
 		gbc_arithmeticOperation.gridy = 0;
 		contentPane.add(arithmeticOperation, gbc_arithmeticOperation);
 		
@@ -144,7 +153,7 @@ public class MainGui extends JFrame {
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField.setText(textField.getText() + "+");
-				calculation.number = Double.parseDouble(calculation.getTextField().getText());
+				calculation.number = Double.parseDouble(textField.getText());
 				calculation.calculation = 1;
 				textField.setText("");
 				arithmeticOperation.setText(calculation.number + "+");
@@ -209,7 +218,7 @@ public class MainGui extends JFrame {
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField.setText(textField.getText() + "-");
-				calculation.number = Double.parseDouble(calculation.getTextField().getText());
+				calculation.number = Double.parseDouble(textField.getText());
 				calculation.calculation = 2;
 				textField.setText("");
 				arithmeticOperation.setText(calculation.number + "-");
@@ -273,7 +282,7 @@ public class MainGui extends JFrame {
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField.setText(textField.getText() + "*");
-				calculation.number = Double.parseDouble(calculation.getTextField().getText());
+				calculation.number = Double.parseDouble(calculation.textField.getText());
 				calculation.calculation = 3;
 				textField.setText("");
 				arithmeticOperation.setText(calculation.number + "*");
@@ -337,7 +346,7 @@ public class MainGui extends JFrame {
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField.setText(textField.getText() + "/");
-				calculation.number = Double.parseDouble(calculation.getTextField().getText());
+				calculation.number = Double.parseDouble(calculation.textField.getText());
 				calculation.calculation = 4;
 				textField.setText("");
 				arithmeticOperation.setText(calculation.number + "/");

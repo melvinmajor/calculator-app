@@ -7,17 +7,9 @@ import javax.swing.JTextField;
  *
  */
 public class Calculation {
-	private JTextField textField;
+	JTextField textField = MainGui.textField;
 	double number, result;
 	int calculation;
-	
-	public JTextField getTextField() {
-		return textField;
-	}
-			
-	public void setTextField(JTextField textField) {
-		this.textField = textField;
-	}
 	
 	public void arithmetic_operations() {
 		switch(calculation) {
