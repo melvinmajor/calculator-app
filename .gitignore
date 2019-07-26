@@ -1,0 +1,16 @@
+# Git ignore of Calculator App (Java)
+# See repository at https://github.com/melvinmajor/calculator-app
+# ===============================================================
+
+# Files and folders of IDE
+.classpath
+.project
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
