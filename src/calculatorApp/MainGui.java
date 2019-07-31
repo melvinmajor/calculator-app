@@ -282,7 +282,7 @@ public class MainGui extends JFrame {
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField.setText(textField.getText() + "*");
-				calculation.number = Double.parseDouble(calculation.textField.getText());
+				calculation.number = Double.parseDouble(textField.getText());
 				calculation.calculation = 3;
 				textField.setText("");
 				arithmeticOperation.setText(calculation.number + "*");
@@ -346,7 +346,7 @@ public class MainGui extends JFrame {
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//textField.setText(textField.getText() + "/");
-				calculation.number = Double.parseDouble(calculation.textField.getText());
+				calculation.number = Double.parseDouble(textField.getText());
 				calculation.calculation = 4;
 				textField.setText("");
 				arithmeticOperation.setText(calculation.number + "/");
